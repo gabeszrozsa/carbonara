@@ -44,7 +44,27 @@ function onAppTypeReceived(io, socket) {
     console.log('--> APP: ', message.id, ' joined: ', message.type);
     socket.join(message.type)
 
-    io.to('DASHBOARD').emit('INIT', MENU);
+    io.to('MOBILE').emit('INIT', MENU);
+  });
+
+function onNewOrderReceived(io, socket) {
+  socket.on('NEW_ORDER', (message) => {
+    const orderId = new Date()-0;
+    console.log('--> NEW_ORDER: ', orderId, ' ordered: ', message.cart);
+
+    const order = {
+      id: orderId,
+      order: message.cart
+    };
+    io.to('DASHBOARD').emit('NEW_ORDER', order);
+  });
+}
+
+function onFinishOrderReceived(io, socket) {
+  socket.on('FINISH_ORDER', (message) => {
+    console.log('--> FINISH_ORDER: ', message.id);
+
+    io.to('MOBILE').emit('FINISH_ORDER', message.id);
   });
 }
 
@@ -52,6 +72,8 @@ io.on('connection', (socket) => {
 
     onClientConnected(io, socket);
     onAppTypeReceived(io, socket);
+    onNewOrderReceived(io, socket);
+    onFinishOrderReceived(io, socket);
 
     socket.on('disconnect', function(){
         console.log('user disconnected');
