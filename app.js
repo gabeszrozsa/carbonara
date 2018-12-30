@@ -26,7 +26,7 @@ io.on('connection', (socket) => {
 
     socket.on('APP', (message) => {
       socket.join(message.type)
-      console.log('--> APP: ', message.id, ' joined: ', message.type);
+      console.log('--> APP: ', message, '-->', message.id, ' joined: ', message.type);
 
       io.to('DASHBOARD').emit('INIT', 'hello');
     });
