@@ -6,13 +6,14 @@ const cors = require('cors');
 io.on('connection', (socket) => {
 
     // Log whenever a user connects
-    console.log('id: ', socket.id);
+    console.log('--> client connected: ', socket.id);
 
     io.clients((error, clients) => {
         if (error) throw error;
-        console.log('log clients: ', clients); // => [6em3d4TJP8Et9EMNAAAA, G5p55dHhGgUnLUctAAAB]
+        console.log('--> all clients: ', clients); // => [6em3d4TJP8Et9EMNAAAA, G5p55dHhGgUnLUctAAAB]
     });
 
+    console.log('...sending app');
     io.to(socket.id).emit('APP', {
       message: 'Type of app [MOBILE/DASHBOARD]',
       id: socket.id
@@ -24,7 +25,7 @@ io.on('connection', (socket) => {
     });
 
     socket.on('APP', (message) => {
-      console.log(message.id, message.type);
+      console.log('--> APP response: ', message);
     })
 
     // When we receive a 'message' event from our client, print out
