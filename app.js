@@ -46,6 +46,7 @@ function onAppTypeReceived(io, socket) {
 
     io.to('MOBILE').emit('INIT', MENU);
   });
+}
 
 function onNewOrderReceived(io, socket) {
   socket.on('NEW_ORDER', (message) => {
