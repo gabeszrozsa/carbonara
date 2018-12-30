@@ -1,6 +1,7 @@
 let app = require('express')();
 let http = require('http').Server(app);
 let io = require('socket.io')(http);
+const cors = require('cors');
 
 io.on('connection', (socket) => {
 
@@ -20,6 +21,8 @@ io.on('connection', (socket) => {
         io.emit('message', {type:'new-message', text: message});
     });
 });
+
+app.use(cors());
 
 // Initialize our websocket server on port 5000
 const PORT = process.env.PORT || 5000;
