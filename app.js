@@ -25,8 +25,11 @@ io.on('connection', (socket) => {
     });
 
     socket.on('APP', (message) => {
-      console.log('--> APP response: ', message);
-    })
+      socket.join(message.type)
+      console.log('--> APP: ', message.id, ' joined: ', message.type);
+
+      io.to('DASHBOARD').emit('INIT', 'hello');
+    });
 
     // When we receive a 'message' event from our client, print out
     // the contents of that message and then echo it back to our client
