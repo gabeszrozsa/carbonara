@@ -7,6 +7,14 @@ io.on('connection', (socket) => {
 
     // Log whenever a user connects
     console.log('user connected', socket);
+    console.log('nsp: ', socket.nsp);
+    console.log('------');
+    console.log('id: ', socket.id);
+    console.log('------');
+    console.log('client: ', socket.client);
+    console.log('------');
+    console.log('conn: ', socket.conn);
+    console.log('------');
 
     // Log whenever a client disconnects from our websocket server
     socket.on('disconnect', function(){
