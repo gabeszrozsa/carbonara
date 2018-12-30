@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'menu main main main main main'
+    'menu main main main main main';
+}
+.container > div {
+  font-size: 30px;
+  background-color: #444444;
+}
+.header { grid-area: header; }
+.menu { grid-area: menu; }
+.main { grid-area: main; }

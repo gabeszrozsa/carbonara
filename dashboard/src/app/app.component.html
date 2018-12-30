@@ -1,14 +1,16 @@
-<div>
-  <button (click)="sendMessage()" >Send</button>
+<div class="container">
+
+  <div class="header">
+    Header
+    <button (click)="sendMessage()" >Send</button>
+  </div>
+
+  <div class="menu">
+    <app-side-nav></app-side-nav>
+  </div>
+
+  <div class="main">
+    <app-order *ngFor="let order of orders"></app-order>
+  </div>
+
 </div>
-
-
-<app-side-nav></app-side-nav>
-
-<div id="header">header</div>
-
-<div>
-  <app-order *ngFor="let order of orders"></app-order>
-</div>
-
-<router-outlet></router-outlet>
