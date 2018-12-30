@@ -1,3 +1,7 @@
 html {
   box-sizing: border-box;
 }
+
+.header {
+  background-color: #940e0e;
+}

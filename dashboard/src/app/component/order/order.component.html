@@ -1,3 +1,7 @@
-<div class="order">
-  order works!
+<div class="main">
+  <div class="order" *ngFor="let order of getOrders()">
+    <p>ORDER_ID:{{order.id}}</p>
+    <p>ORDER_CART:{{order.cart}}</p>
+    <button (click)="sendMessage()" >Finish</button>
+  </div>
 </div>

@@ -7,9 +7,8 @@ import {OrderComponent} from './component/order/order.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  MSG = 'Test Message';
-  orders = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+export class AppComponent implements OnInit{
+
   constructor(private chat: ChatService) { }
 
   ngOnInit() {
@@ -19,8 +18,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-  sendMessage() {
-    this.chat.sendMsg(this.MSG);
+  getOrders() {
+    return this.chat.getOrders();
   }
-
 }

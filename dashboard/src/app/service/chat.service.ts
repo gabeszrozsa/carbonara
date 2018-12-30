@@ -28,4 +28,8 @@ export class ChatService {
     console.log('message sent:', msg);
   }
 
+  getOrders() {
+    return this.wsService.getOrders();
+  }
+
 }

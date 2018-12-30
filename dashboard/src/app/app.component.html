@@ -1,16 +1,13 @@
 <div class="container">
 
   <div class="header">
-    Header
-    <button (click)="sendMessage()" >Send</button>
+    Logo
   </div>
 
   <div class="menu">
     <app-side-nav></app-side-nav>
   </div>
 
-  <div class="main">
-    <app-order *ngFor="let order of orders"></app-order>
-  </div>
+  <app-order></app-order>
 
 </div>

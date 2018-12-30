@@ -1,12 +1,12 @@
 #side-nav {
   display: flex;
   flex-direction: column;
+  background-color: #940e0e;
 }
 
 #side-nav .item {
   padding: 5px 10px;
   color: white;
-  background-color: #940e0e;
 }
 
 #side-nav .item:hover {

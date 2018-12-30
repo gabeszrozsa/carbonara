@@ -1,5 +1,17 @@
+.main {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: start;
+  padding: 20px;
+}
+.main > * {
+  margin: 10px;
+}
+
 .order {
   width: 200px;
   height: 100px;
   border: 1px solid grey;
+  align-items: center;
+  background-color: white;
 }

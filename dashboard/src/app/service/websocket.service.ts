@@ -9,14 +9,36 @@ import * as Rx from 'rxjs/Rx';
 export class WebsocketService {
 
   private socket;
-  private observer;
+  public observer;
   private observable;
 
   private APP = 'APP';
   private TYPE = 'DASHBOARD';
   private URL = 'https://carbonara-app.herokuapp.com';
-  // private PORT = '30932';
   private ID: String;
+
+  private orders = [
+      {
+        id: '1',
+        cart: [1, 2, 3 , 4]
+      },
+      {
+        id: '2',
+        cart: [1, 2, 3 , 4]
+      },
+      {
+        id: '3',
+        cart: [1, 2, 3 , 4]
+      },
+      {
+        id: '4',
+        cart: [1, 2, 3 , 4]
+      },
+      {
+        id: '5',
+        cart: [1, 2, 3 , 4]
+      }
+  ];
 
   constructor() {}
 
@@ -30,20 +52,15 @@ export class WebsocketService {
     };
 
     this.observable = new Observable(o => {
-      this.socket.on('message', (data) => {
-        console.log('Received message from Websocket Server');
-        o.next(data);
-      });
-
-
       this.socket.on('APP', msg => this.app(msg));
       this.socket.on('INIT', msg => this.init(msg));
-
+      this.socket.on('NEW_ORDER', msg => this.newOrder(msg));
     });
 
     return Rx.Subject.create(this.observer, this.observable);
   }
 
+  getOrders() { return this.orders; }
 
   app(data) {
     console.log('ACK');
@@ -61,15 +78,17 @@ export class WebsocketService {
     console.log('ME');
   }
 
-  init(data) {
-      console.log('INIT');
-      console.log(data);
+  init (data) {
+    console.log(data);
   }
 
-
+  newOrder(data) {
+    this.orders.push(data);
+    console.log('NEW_ORDER');
+    console.log(data);
+    return 'abc';
+  }
 }
-
-
 
 // return () => {
 //   this.socket.disconnect();
