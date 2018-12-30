@@ -13,10 +13,19 @@ io.on('connection', (socket) => {
         console.log('log clients: ', clients); // => [6em3d4TJP8Et9EMNAAAA, G5p55dHhGgUnLUctAAAB]
     });
 
+    io.to(socket.id).emit('APP', {
+      message: 'Type of app [MOBILE/DASHBOARD]',
+      id: socket.id
+    });
+
     // Log whenever a client disconnects from our websocket server
     socket.on('disconnect', function(){
         console.log('user disconnected');
     });
+
+    socket.on('APP', (message) => {
+      console.log(message.id, message.type);
+    })
 
     // When we receive a 'message' event from our client, print out
     // the contents of that message and then echo it back to our client
