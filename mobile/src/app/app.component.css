@@ -1,0 +1,60 @@
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.app-container {
+  width: max-content;
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 10px;
+}
+
+mat-toolbar {
+  min-height: unset;
+  position: fixed;
+  bottom: 0;
+}
+
+mat-toolbar-row {
+  height: unset;
+  display: grid;
+  padding: 0;
+  grid-template-columns: repeat(3, 1fr);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+mat-toolbar-row.unauthenticated {
+  grid-template-columns: auto auto
+}
+
+mat-toolbar-row div {
+  text-align: center;
+  padding: 10px 0;
+  border-bottom: 4px solid rgba(255, 255, 255, 0.5);
+}
+
+mat-toolbar-row div :not(mat-icon) {
+  font-variant-caps: all-small-caps;
+}
+
+mat-toolbar-row div.active {
+  color: white;
+  border-bottom-color: white;
+}
+
+mat-toolbar-row div:focus {
+  outline: none;
+}
+
+mat-toolbar-row div:hover {
+  cursor: pointer;
+}
+
+mat-toolbar-row mat-icon {
+  vertical-align: middle;
+}

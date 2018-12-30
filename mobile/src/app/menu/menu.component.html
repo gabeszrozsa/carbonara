@@ -1,0 +1,45 @@
+<div class="flex-container">
+  <h1>Pizza</h1>
+  <mat-card class="example-card" *ngFor="let pizza of menu.pizza">
+    <mat-card-header>
+      <mat-card-title>{{ pizza.name }}</mat-card-title>
+      <mat-card-subtitle>{{ pizza.price }} Ft</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="pizza.imageUrl" alt="pizzaPicture">
+    <mat-card-content>
+      <p>
+        {{ pizza.description }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="example-button-row">
+        <button mat-raised-button class="open-button" (click)="addToCart(pizza)">
+          <mat-icon>shopping_cart</mat-icon>
+          Kosárba
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+
+  <h1>Drinks</h1>
+  <mat-card class="example-card" *ngFor="let drink of menu.drinks">
+    <mat-card-header>
+      <mat-card-title>{{ drink.name }}</mat-card-title>
+      <mat-card-subtitle>{{ drink.price }} Ft</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="drink.imageUrl" alt="pizzaPicture">
+    <mat-card-content>
+      <p>
+        {{ drink.description }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="example-button-row">
+        <button mat-raised-button class="open-button" (click)="addToCart(drink)">
+          <mat-icon>shopping_cart</mat-icon>
+          Kosárba
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>
