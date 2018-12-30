@@ -6,7 +6,7 @@ const cors = require('cors');
 io.on('connection', (socket) => {
 
     // Log whenever a user connects
-    console.log('user connected');
+    console.log('user connected', socket);
 
     // Log whenever a client disconnects from our websocket server
     socket.on('disconnect', function(){
