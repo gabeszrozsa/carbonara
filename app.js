@@ -6,7 +6,6 @@ const cors = require('cors');
 io.on('connection', (socket) => {
 
     // Log whenever a user connects
-    console.log('user connected', socket);
     console.log('id: ', socket.id);
 
     io.clients((error, clients) => {
