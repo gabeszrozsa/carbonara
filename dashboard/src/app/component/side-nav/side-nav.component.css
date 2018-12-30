@@ -1,0 +1,18 @@
+#side-nav {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+
+  background-color: #d31935;
+  border-radius: 5px;
+  padding: 0 15px 0 15px;
+  font-size: 150%;
+}
+
+#side-nav .item {
+  color: white;
+}
+
+#side-nav .item:hover {
+  color: grey;
+}

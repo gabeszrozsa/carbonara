@@ -2,4 +2,13 @@
   <button (click)="sendMessage()" >Send</button>
 </div>
 
+
+<app-side-nav></app-side-nav>
+
+<div id="header">header</div>
+
+<div>
+  <app-order *ngFor="let order of orders"></app-order>
+</div>
+
 <router-outlet></router-outlet>

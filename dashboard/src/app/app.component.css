@@ -1,0 +1,15 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 40px;
+}
+
+
+#header {
+  background-color: #d31935;
+  border-radius: 5px;
+  width: 100%;
+  height: 50px;
+}
